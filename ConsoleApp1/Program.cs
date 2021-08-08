@@ -8,7 +8,7 @@ namespace ConsoleApp1
         {
             // что ближе - out/ref, in/out ... ?
             // какая разница - просто ссылочный тип, ref или out? во всех случаях влияние оказывается на внешний объект
-            #region out
+            #region Out
             int param;  // вызовется public void __2(out int param). не обязательно присваивать
             int? paramNullable = 1; // вызовется public void __2(out int? param)
 
@@ -19,7 +19,7 @@ namespace ConsoleApp1
             _out.__3();
             #endregion
 
-            #region in
+            #region In
             int paramIn = 10;  // обязательно присвоить
             int? paramNullableIn = 1; // вызовется public void __2(out int? param)
 
@@ -53,7 +53,7 @@ namespace ConsoleApp1
             _in.Method(in i); // passed by readonly reference, explicitly using `in`
             #endregion
 
-            #region ref
+            #region Ref
             int paramRef = 0;  // вызовется public void __2(out int param). обязательно присваивать
             int? paramNullableRef = 1; // вызовется public void __2(out int? param)
 
@@ -61,9 +61,60 @@ namespace ConsoleApp1
             _ref.__1(ref paramRef); // обязательно out, обязательно int param - назван так же
             _ref.__1(ref paramNullableRef); // обязательно out, обязательно int param - назван так же
             var a1Ref = _ref.__2(ref paramRef); // и вернёт значение и передаст по ссылке
-            //_ref.__3();
+                                                //_ref.__3();
             #endregion
 
+            #region Implicit Explicit Operator
+            var d = new Digit(7); // structure
+
+            byte number = d; // необходим implicit
+            Console.WriteLine(number);  // output: 7
+
+            Digit digit = (Digit)number; // structure. необходим explicit
+            Console.WriteLine(digit);  // output: 7
+            #endregion
+
+            #region This
+            var a = new Fraction(5, 4);
+            var b = new Fraction(1, 2);
+            var op1 = -a;
+            var op2 = a + b;
+            var op3 = a - b;
+            var op4 = a * b;
+            var op5 = a / b;
+            //var op6 = a + 1;
+            var op6 = a + a;
+            
+            var this_ = new This();
+            //this_.Foo(this);
+
+            this_.Foo();
+
+            var stringCollection = new SampleCollection<string>();
+            stringCollection[0] = "Hello, World";
+            var this1 = stringCollection[0];
+            var stringCollection2 = new SampleCollection2<string>();
+            stringCollection2.Add("Hello, World");
+            var this2 = stringCollection2[0];
+            var stringCollection3 = new SampleCollection3<string>();
+            stringCollection3[0] = "Hello, World.";
+            var this3 = stringCollection3[0];
+            #endregion
+
+            #region
+            #endregion
+
+            #region
+            #endregion
+
+            #region
+            #endregion
+
+            #region
+            #endregion
+
+            #region
+            #endregion
             Console.WriteLine("Hello World!");
         }
     }
