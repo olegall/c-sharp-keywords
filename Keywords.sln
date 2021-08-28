@@ -3,7 +3,29 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{D0F31C8D-1B93-4572-91A0-D1976F73D1F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{D0F31C8D-1B93-4572-91A0-D1976F73D1F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yield", "Yield\Yield.csproj", "{E4E3FFDD-B05C-4F8D-A0DC-05077AFB3716}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Virtual", "Virtual\Virtual.csproj", "{D3E72C31-15F3-4E28-B863-1BEE10FFC0F1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Volatile", "Volatile\Volatile.csproj", "{5B70FA12-3147-4C02-94C9-0A0A424CF735}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lock", "Lock\Lock.csproj", "{B33449D6-E0B4-4DC3-BD0C-2137039100D0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Extern", "Extern\Extern.csproj", "{06E61037-E09E-4CA1-AB16-C2A04A5F39F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interface", "Interface\Interface.csproj", "{D40E9D71-525C-4849-89D9-23FC6ABD5590}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FixedUnsafe", "FixedUnsafe\FixedUnsafe.csproj", "{67B5969D-1277-4E2A-821B-7A0A2191074C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Readonly", "Readonly\Readonly.csproj", "{C4833FFA-C296-4637-962A-FA1DF90794B2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Enum", "Enum\Enum.csproj", "{71ED75C6-1527-4B90-933D-1508C4E75271}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Checked", "Checked\Checked.csproj", "{D6E58F68-3C07-4C69-8F8B-C2A7E879FD17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unchecked", "Unchecked\Unchecked.csproj", "{E6FDFD09-007C-4740-8155-3E7742B1F8CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +37,50 @@ Global
 		{D0F31C8D-1B93-4572-91A0-D1976F73D1F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D0F31C8D-1B93-4572-91A0-D1976F73D1F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D0F31C8D-1B93-4572-91A0-D1976F73D1F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4E3FFDD-B05C-4F8D-A0DC-05077AFB3716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4E3FFDD-B05C-4F8D-A0DC-05077AFB3716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4E3FFDD-B05C-4F8D-A0DC-05077AFB3716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4E3FFDD-B05C-4F8D-A0DC-05077AFB3716}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3E72C31-15F3-4E28-B863-1BEE10FFC0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3E72C31-15F3-4E28-B863-1BEE10FFC0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3E72C31-15F3-4E28-B863-1BEE10FFC0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3E72C31-15F3-4E28-B863-1BEE10FFC0F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B70FA12-3147-4C02-94C9-0A0A424CF735}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B70FA12-3147-4C02-94C9-0A0A424CF735}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B70FA12-3147-4C02-94C9-0A0A424CF735}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B70FA12-3147-4C02-94C9-0A0A424CF735}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B33449D6-E0B4-4DC3-BD0C-2137039100D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B33449D6-E0B4-4DC3-BD0C-2137039100D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B33449D6-E0B4-4DC3-BD0C-2137039100D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B33449D6-E0B4-4DC3-BD0C-2137039100D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06E61037-E09E-4CA1-AB16-C2A04A5F39F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06E61037-E09E-4CA1-AB16-C2A04A5F39F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06E61037-E09E-4CA1-AB16-C2A04A5F39F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06E61037-E09E-4CA1-AB16-C2A04A5F39F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D40E9D71-525C-4849-89D9-23FC6ABD5590}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D40E9D71-525C-4849-89D9-23FC6ABD5590}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D40E9D71-525C-4849-89D9-23FC6ABD5590}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D40E9D71-525C-4849-89D9-23FC6ABD5590}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67B5969D-1277-4E2A-821B-7A0A2191074C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67B5969D-1277-4E2A-821B-7A0A2191074C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67B5969D-1277-4E2A-821B-7A0A2191074C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67B5969D-1277-4E2A-821B-7A0A2191074C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4833FFA-C296-4637-962A-FA1DF90794B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4833FFA-C296-4637-962A-FA1DF90794B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4833FFA-C296-4637-962A-FA1DF90794B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4833FFA-C296-4637-962A-FA1DF90794B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71ED75C6-1527-4B90-933D-1508C4E75271}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71ED75C6-1527-4B90-933D-1508C4E75271}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71ED75C6-1527-4B90-933D-1508C4E75271}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71ED75C6-1527-4B90-933D-1508C4E75271}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6E58F68-3C07-4C69-8F8B-C2A7E879FD17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6E58F68-3C07-4C69-8F8B-C2A7E879FD17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6E58F68-3C07-4C69-8F8B-C2A7E879FD17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6E58F68-3C07-4C69-8F8B-C2A7E879FD17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6FDFD09-007C-4740-8155-3E7742B1F8CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6FDFD09-007C-4740-8155-3E7742B1F8CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6FDFD09-007C-4740-8155-3E7742B1F8CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6FDFD09-007C-4740-8155-3E7742B1F8CC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

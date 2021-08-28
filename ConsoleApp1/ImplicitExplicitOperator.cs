@@ -14,7 +14,7 @@ namespace ConsoleApp1
             }
             this.digit = digit;
         }
-        // формат static и implicit/explicit и operator и тип
+        // формат {static implicit/explicit operator} и тип
                                         // тип, а потом скобки
         public static implicit operator byte(Digit d) => d.digit;
         public static explicit operator Digit(byte b) => new Digit(b);
