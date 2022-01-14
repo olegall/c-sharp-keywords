@@ -1,6 +1,11 @@
 ﻿using System;
 namespace ConsoleApp1
 {
+    // private нельзя
+    /*private class PrivateClass
+    { 
+    }*/
+
     public class Out
     {
         public void __1(out int param)

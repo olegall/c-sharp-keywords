@@ -42,7 +42,7 @@ namespace Unchecked
             // statements compile but raise an overflow exception at run time.
             checked
             {
-                int2 = variableMax + 10;
+                //int2 = variableMax + 10;
             }
             //int2 = checked(variableMax + 10);
 
