@@ -2,18 +2,20 @@
 {
     public class Ref
     {
-        public void __1(ref int param)
+        private int a1 = 0;  // вызовется _1(out int param). const нельзя
+        private int? a2 = 1; // вызовется _1(out int? param). const нельзя
+
+        public void _1(ref int param)
         {
-            param = 100; // не обязательно
+            param = 100; // не обязательно. такое значение приобретёт внешняя объявленная переменная
         }
         
-        // int? - работает перегрузка
-        public void __1(ref int? param)
-        {
-            param = null;
+        public void _1(ref int? param) // int? - работает перегрузка
+        {            
+            param = null; // такое значение приобретёт внешняя объявленная переменная
         }
 
-        public int __2(ref int param)
+        public int _2(ref int param)
         {
             param = 10; // не обязательно
             return 11;
@@ -26,5 +28,14 @@
         //    var a1 = Int64.TryParse(arg, ref var number);
         //    long result = number;
         //}
+
+        public void Run() 
+        {
+            // 35, 36 строки вызываются подряд, после вызов 2-х методов подряд!
+            _1(ref a1); // обязательно out, обязательно int param - назван так же
+            _1(ref a2); // обязательно out, обязательно int param - назван так же
+            var a1Ref = _2(ref a1); // и вернёт значение и передаст по ссылке
+                                                //_ref.__3();
+        }
     }
 }
