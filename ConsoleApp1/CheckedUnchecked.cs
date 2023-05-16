@@ -4,31 +4,78 @@ namespace ConsoleApp1
 {
     public class CheckedUnchecked
     {
-        public void Microsoft1() 
+        // Set maxIntValue to the maximum value for integers.
+        static int maxIntValue = 2147483647;
+
+        // Using a checked expression.
+        static int CheckedMethod()
+        {
+            int z = 0;
+            try
+            {
+                // The following line raises an exception because it is checked.
+                z = checked(maxIntValue + 10);
+            }
+            catch (OverflowException e)
+            {
+                // The following line displays information about the error.
+                Console.WriteLine("CHECKED and CAUGHT:  " + e.ToString());
+            }
+            // The value of z is still 0.
+            return z;
+        }
+
+        // Using an unchecked expression.
+        static int UncheckedMethod()
+        {
+            int z = 0;
+            try
+            {
+                // The following calculation is unchecked and will not
+                // raise an exception.
+                z = maxIntValue + 10;
+            }
+            catch (OverflowException e)
+            {
+                // The following line will not be executed.
+                Console.WriteLine("UNCHECKED and CAUGHT:  " + e.ToString());
+            }
+            // Because of the undetected overflow, the sum of 2147483647 + 10 is
+            // returned as -2147483639.
+            return z;
+        }
+
+
+        public void _1() // Microsoft
         {
             uint a = uint.MaxValue;
 
+            var a1 = a + 3;
+
             unchecked
             {
-                var a1 = a + 3;  // output: 2
+                var a2 = a + 3;  // output: 2. Результат такой же как выше (без unchecked)
             }
 
             try
             {
                 checked
                 {
-                    var a1 = a + 3;
+                    var a2 = a + 3;
                 }
             }
             catch (OverflowException e)
             {
-                var a1 = e.Message;  // output: Arithmetic operation resulted in an overflow.
+                var a2 = e.Message;  // output: Arithmetic operation resulted in an overflow.
             }
 
-            var a2 = a + 3;
+            //checked
+            //{
+            //    var a2 = a + 3; // OverflowException
+            //}
         }
 
-        public void Microsoft2()
+        public void _2() // Microsoft
         {
             double a = double.MaxValue;
 
@@ -45,7 +92,7 @@ namespace ConsoleApp1
             }
         }
 
-        public void Microsoft3() 
+        public void _3() // Microsoft
         {
             int Multiply(int a, int b) => a * b;
 
@@ -55,7 +102,7 @@ namespace ConsoleApp1
             {
                 checked
                 {
-                    Console.WriteLine(Multiply(factor, int.MaxValue));  // output: -2
+                    var a1 = Multiply(factor, int.MaxValue);  // output: -2
                 }
             }
             catch (OverflowException e)
@@ -67,20 +114,20 @@ namespace ConsoleApp1
             {
                 checked
                 {
-                    Console.WriteLine(Multiply(factor, factor * int.MaxValue));
+                    var a1 = Multiply(factor, factor * int.MaxValue);
                 }
             }
             catch (OverflowException e)
             {
-                Console.WriteLine(e.Message);  // output: Arithmetic operation resulted in an overflow.
+                var a1 = e.Message;  // output: Arithmetic operation resulted in an overflow.
             }
         }
 
         public void Run()
         {
-            Microsoft1();
-            Microsoft2();
-            Microsoft3();
+            _1();
+            _2();
+            _3();
 
             // int.MaxValue is 2,147,483,647.
             const int ConstantMax = int.MaxValue;
@@ -137,6 +184,9 @@ namespace ConsoleApp1
                 }
                 // Additional checked code here.
             }
+
+            Console.WriteLine("\nCHECKED output value is: {0}", CheckedMethod());
+            Console.WriteLine("UNCHECKED output value is: {0}", UncheckedMethod());
         }
     }
 }

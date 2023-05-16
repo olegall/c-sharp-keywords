@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Virtual
+namespace VirtualOverride_
 {
-    public class TestClass
+    public partial class VirtualOverride
     {
         public class Shape
         {
@@ -61,7 +61,7 @@ namespace Virtual
             }
         }
 
-        public static void Main()
+        public void Run2()
         {
             double r = 3.0, h = 5.0;
             Shape c = new Circle(r);

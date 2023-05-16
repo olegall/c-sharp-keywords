@@ -42,5 +42,17 @@ namespace ConsoleApp1
 
     class Operator
     {
+        public void Run() 
+        {
+            var a = new Fraction(5, 4);
+            var b = new Fraction(1, 2);
+            var op1 = -a;
+            var op2 = a + b;
+            var op3 = a - b;
+            var op4 = a * b;
+            var op5 = a / b;
+            //var op6 = a + 1;
+            var op6 = a + a;
+        }
     }
 }

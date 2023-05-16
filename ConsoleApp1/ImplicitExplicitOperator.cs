@@ -14,10 +14,10 @@ namespace ConsoleApp1
             }
             this.digit = digit;
         }
-        // формат {static implicit/explicit operator} и тип
-                                        // тип, а потом скобки
-        public static implicit operator byte(Digit d) => d.digit;
-        public static explicit operator Digit(byte b) => new Digit(b);
+
+        // формат {static implicit/explicit operator тип(тип объект)}
+        public static implicit operator byte(Digit d) => d.digit; // когда imlicit не нужен Cast
+        public static explicit operator Digit(byte b) => new Digit(b); // когда explicit нужен Cast
 
         public override string ToString() => $"{digit}";
     }
@@ -25,5 +25,11 @@ namespace ConsoleApp1
     // сравнение с обычным кастом?
     class ImplicitExplicitOperator
     {
+        public void Run()
+        {
+            var d = new Digit(7);
+            byte number = d; // output: 7. implicit convertion
+            Digit digit = (Digit)number; // output: 7. explicit conversion
+        }
     }
 }

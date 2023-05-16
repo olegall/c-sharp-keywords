@@ -45,7 +45,7 @@ namespace Checked
             return z;
         }
 
-        public static void Main()
+        public void Run2()
         {
             Console.WriteLine("\nCHECKED output value is: {0}", CheckedMethod());
             Console.WriteLine("UNCHECKED output value is: {0}", UncheckedMethod());
