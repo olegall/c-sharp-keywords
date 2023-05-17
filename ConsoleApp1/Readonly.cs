@@ -26,7 +26,7 @@
             private static readonly SamplePoint origin = new SamplePoint(0, 0, 0);
             public static ref readonly SamplePoint Origin => ref origin;
 
-            public static void Mai()
+            public static void Main_()
             {
                 SamplePoint p1 = new SamplePoint(11, 21, 32);   // OK
                 var a1 = $"p1: x={p1.x}, y={p1.y}, z={p1.z}";
@@ -74,7 +74,7 @@
 
         public void Run()
         {
-            SamplePoint.Mai();
+            SamplePoint.Main_();
         }
     }
 }
