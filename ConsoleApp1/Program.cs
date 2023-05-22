@@ -21,20 +21,24 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            new Out().Run();
-            new In().Run();
-            new Ref().Run();
-            new VirtualOverride().Run1();
-            new VirtualOverride().Run2();
-            new Enum().Run();
-            new Operator().Run();
-            new This().Run();
-            new ImplicitExplicitOperator().Run();
-            new Is().Run();
-            new CheckedUnchecked().Run();
-            new Readonly().Run();
-            new Default().Run();
-
+            //new Out().Run();
+            //new In().Run();
+            //new Ref().Run();
+            //new VirtualOverride().Run1();
+            //new VirtualOverride().Run2();
+            //new Enum().Run();
+            //new Operator().Run();
+            //new This().Run();
+            //new ImplicitExplicitOperator().Run();
+            //new Is().Run();
+            //new CheckedUnchecked().Run();
+            //new Readonly().Run();
+            //new Default().Run();
+            //new Static().Run();
+            //new IsAsTypeofCast().Run();
+            //new Dynamic().Run1();
+            //new Dynamic().Run2();
+            new Event().Run();
             #region Yield
             PowersOf2.Main();
             GalaxyClass.ShowGalaxies();
