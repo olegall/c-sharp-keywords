@@ -1,7 +1,5 @@
-﻿using Extern;
-using FixedUnsafe;
+﻿using FixedUnsafe;
 using Interface;
-using Lock;
 using Readonly;
 using System;
 using Volatile;
@@ -39,6 +37,9 @@ namespace ConsoleApp1
             //new Dynamic().Run1();
             //new Dynamic().Run2();
             new Event().Run();
+            new Base().Run();
+            new Lock_().Run();
+            new Extern().Run();
             #region Yield
             PowersOf2.Main();
             GalaxyClass.ShowGalaxies();
@@ -46,13 +47,6 @@ namespace ConsoleApp1
 
             #region Volatile
             WorkerThreadExample.Main();
-            #endregion
-
-
-
-
-            #region Lock
-            AccountTest.Main();
             #endregion
 
             #region External
