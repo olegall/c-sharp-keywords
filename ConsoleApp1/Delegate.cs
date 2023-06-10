@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace ConsoleApp1
 {
@@ -36,6 +34,12 @@ namespace ConsoleApp1
 
             // The two Action<string> delegate instances can now be combined.
             Action<string> combination = stringAction + wrappedObjectAction;
+        }
+
+        public void Run() 
+        {
+            _1();
+            _2();
         }
     }
 }

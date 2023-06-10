@@ -1,6 +1,4 @@
 ﻿using FixedUnsafe;
-using Interface;
-using Readonly;
 using System;
 using Volatile;
 using Yield;
@@ -19,27 +17,33 @@ namespace ConsoleApp1
 
         static void Main(string[] args)
         {
-            //new Out().Run();
-            //new In().Run();
-            //new Ref().Run();
-            //new VirtualOverride().Run1();
-            //new VirtualOverride().Run2();
-            //new Enum().Run();
-            //new Operator().Run();
-            //new This().Run();
-            //new ImplicitExplicitOperator().Run();
-            //new Is().Run();
-            //new CheckedUnchecked().Run();
-            //new Readonly().Run();
-            //new Default().Run();
-            //new Static().Run();
-            //new IsAsTypeofCast().Run();
-            //new Dynamic().Run1();
-            //new Dynamic().Run2();
-            new Event().Run();
+            // каждый класс сделать IRunnable. В цикле запустить все объекты IRunnable
+            new Abstract().Run();
+            new CheckedUnchecked().Run();
+            new Delegate().Run();
             new Base().Run();
-            new Lock_().Run();
+            new Default().Run();
+            new Dynamic().Run1();
+            new Dynamic().Run2();
+            new Enum().Run();
+            new Event().Run();
             new Extern().Run();
+            new Operator().Run();
+            new Out().Run();
+            new Readonly().Run();
+            new Ref().Run();
+            new Static().Run();
+            new This().Run();
+            new ImplicitExplicitOperator().Run();
+            new In().Run();
+            new Is().Run();
+            new IsAsTypeofCast().Run();
+            new Lock_().Run();
+            new TryCatchFinallyThrow().Run_();
+            new Using().Run();
+            new VirtualOverride().Run1();
+            new VirtualOverride().Run2();
+
             #region Yield
             PowersOf2.Main();
             GalaxyClass.ShowGalaxies();
@@ -53,21 +57,12 @@ namespace ConsoleApp1
             //ExternTest.Main();
             #endregion
 
-            #region
-            MainClass.Main();
-            #endregion
-
             #region Fixed Unsafe
             FixedUnsafe_.FixedSpanExample();
             UnsafeCode_PointerTypes_FunctionPointers.Ex2();
             UnsafeCode_PointerTypes_FunctionPointers.Ex3();
             UnsafeCode_PointerTypes_FunctionPointers.AccessEmbeddedArray();
             UnsafeCode_PointerTypes_FunctionPointers.UnsafeCopyArrays();
-            #endregion
-
-            #region Readonly
-            // https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/proposals/csharp-7.2/readonly-ref
-            SamplePoint.Main();
             #endregion
 
             Console.WriteLine("***************");

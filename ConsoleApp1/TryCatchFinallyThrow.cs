@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    class TryCatchFinallyThrow
+    public class TryCatchFinallyThrow
     {
         private string name;
 
@@ -17,58 +15,13 @@ namespace ConsoleApp1
                 throw new ArgumentNullException(paramName: nameof(value), message: "Name cannot be null");
         }
 
-        char _1(string args) => args.Length >= 1 ? args[0] : throw new ArgumentException("Please supply at least one argument.");
+        string _1(string args) 
+        {
+            string first = args.Length >= 1 ? args[0] : throw new ArgumentException("Please supply at least one argument.");
+            return first;
+        }
 
         DateTime ToDateTime(IFormatProvider provider) => throw new InvalidCastException("Conversion to a DateTime is not supported.");
-
-        void _2() 
-        {
-            try
-            {
-                var result = Process(-3, 4);
-                Console.WriteLine($"Processing succeeded: {result}");
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine($"Processing failed: {e.Message}");
-            }
-
-            try
-            {
-                var result = Process(-3, 4);
-                Console.WriteLine($"Processing succeeded: {result}");
-            }
-            catch (Exception e)
-            {
-                //LogError(e, "Processing failed.");
-                throw;
-            }
-
-            try
-            {
-                var result = Process(-3, 4);
-                Console.WriteLine($"Processing succeeded: {result}");
-            }
-            catch (Exception e) when (e is ArgumentException || e is DivideByZeroException)
-            {
-                Console.WriteLine($"Processing failed: {e.Message}");
-            }
-
-            try
-            {
-                //var result = await ProcessAsync(-3, 4, cancellationToken);
-                var result = Process(-3, 4);
-                Console.WriteLine($"Processing succeeded: {result}");
-            }
-            catch (ArgumentException e)
-            {
-                Console.WriteLine($"Processing failed: {e.Message}");
-            }
-            catch (OperationCanceledException)
-            {
-                Console.WriteLine("Processing is cancelled.");
-            }
-        }
 
         public static async Task Run()
         {
@@ -100,8 +53,15 @@ namespace ConsoleApp1
             return input;
         }
 
-        async Task ProcessAsync(int input, CancellationToken ct) 
-        { 
+        async Task ProcessAsync(int input, CancellationToken ct) { }
+
+        async Task ProcessAsync(int a1, int a2, CancellationToken ct) { }
+
+        int Process(int a1, int a2)
+        {
+            // a1/a2, a1 = 0
+            // a1, a2 - nullable
+            return 0; 
         }
 
         bool Busy;
@@ -139,13 +99,56 @@ namespace ConsoleApp1
             }
         }
 
-        int Process(int a1, int a2)
+        public async Task Run_()
         {
-            return 0;
-        }
+            try
+            {
+                var result = Process(-3, 4);
+                Console.WriteLine($"Processing succeeded: {result}");
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine($"Processing failed: {e.Message}");
+            }
 
-        public void Run1()
-        {
+            try
+            {
+                var result = Process(-3, 4);
+                Console.WriteLine($"Processing succeeded: {result}");
+            }
+            catch (Exception e)
+            {
+                //LogError(e, "Processing failed.");
+                throw;
+            }
+
+            try
+            {
+                var result = Process(-3, 4);
+                Console.WriteLine($"Processing succeeded: {result}");
+            }
+            catch (Exception e) when (e is ArgumentException || e is DivideByZeroException)
+            {
+                Console.WriteLine($"Processing failed: {e.Message}");
+            }
+
+            try
+            {
+                CancellationToken cancellationToken = null;
+                var result = await ProcessAsync(-3, 4, cancellationToken);
+
+                Console.WriteLine($"Processing succeeded: {result}");
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine($"Processing failed: {e.Message}");
+            }
+            catch (OperationCanceledException)
+            {
+                Console.WriteLine("Processing is cancelled.");
+            }
+
+            _1("xxx");
         }
     }
 }

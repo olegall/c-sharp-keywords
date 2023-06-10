@@ -2,13 +2,10 @@
 {
     class Abstract
     {
-        #region
         abstract class Shape
         {
             public abstract int GetArea(); // обязательно public
         }
-
-        
 
         class Square : Shape
         {
@@ -25,9 +22,7 @@
                 var a1 = $"Area of the square = {sq.GetArea()}"; // Output: Area of the square = 144
             }
         }
-        #endregion
 
-        #region
         interface I
         {
             void M();
@@ -37,9 +32,7 @@
         {
             public abstract void M();
         }
-        #endregion
 
-        #region
         // Abstract class
         abstract class BaseClass
         {
@@ -83,9 +76,7 @@
                 
             }
         }
-        #endregion
 
-        #region
         class FooAbstract
         {
             int GetArea2() => 0;
@@ -103,7 +94,6 @@
             // abstract delegate int GetArea4(); // abstract нельзя
             delegate int GetArea4();
         }
-        #endregion
 
         class Foo
         {
