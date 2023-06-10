@@ -7,8 +7,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FixedUnsafe\FixedUnsafe.csproj" />
-    <ProjectReference Include="..\Interface\Interface.csproj" />
-    <ProjectReference Include="..\Readonly\Readonly.csproj" />
     <ProjectReference Include="..\Volatile\Volatile.csproj" />
     <ProjectReference Include="..\Yield\Yield.csproj" />
   </ItemGroup>

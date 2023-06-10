@@ -8,7 +8,7 @@ namespace ConsoleApp1
         [DllImport("User32.dll", CharSet = CharSet.Unicode)]
         public static extern int MessageBox(IntPtr h, string m, string c, int type);
 
-        public static int Main()
+        public static int Main_()
         {
             string myString;
             Console.Write("Enter your message: ");
@@ -18,7 +18,7 @@ namespace ConsoleApp1
 
         public void Run()
         {
-            Main();
+            Main_();
         }
     }
 }

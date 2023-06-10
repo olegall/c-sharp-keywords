@@ -17,7 +17,7 @@ namespace ConsoleApp1
                 // Method implementation.
             }
 
-            static void Main()
+            static void Main_()
             {
                 // Declare an interface instance.
                 ISampleInterface obj = new ImplementationClass();
@@ -29,7 +29,7 @@ namespace ConsoleApp1
 
             public void Run() 
             {
-                Main();
+                Main_();
             }
         }
 
@@ -70,7 +70,7 @@ namespace ConsoleApp1
                 Console.WriteLine("x={0}, y={1}", p.X, p.Y);
             }
 
-            static void Main()
+            static void Main_()
             {
                 IPoint p = new Point(2, 3);
                 Console.Write("My Point: ");
