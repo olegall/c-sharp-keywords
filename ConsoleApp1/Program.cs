@@ -20,19 +20,19 @@ namespace ConsoleApp1
             // каждый класс сделать IRunnable. В цикле запустить все объекты IRunnable
             new Abstract().Run();
             new CheckedUnchecked().Run();
-            new Delegate().Run();
+            new Delegate_().Run();
             new Base().Run();
             new Default().Run();
             new Dynamic().Run1();
             new Dynamic().Run2();
             new Enum().Run();
             new Event().Run();
-            new Extern().Run();
+            //new Extern().Run();
             new Operator().Run();
             new Out().Run();
             new Readonly().Run();
-            new Ref().Run();
-            new Static().Run();
+            new Ref().Main_();
+            //new Static().Run();
             new This().Run();
             new ImplicitExplicitOperator().Run();
             new In().Run();

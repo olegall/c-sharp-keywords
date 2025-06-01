@@ -53,7 +53,7 @@
             // Because dynamic_ec is dynamic, the following call to ExampleMethod
             // with two arguments does not produce an error at compile time.
             // However, it does cause a run-time error.
-            var a5 = dynamic_ec.ExampleMethod(10, 4);
+            //var a5 = dynamic_ec.ExampleMethod(10, 4);
 
             object a6 = dynamic_ec.ExampleMethod(10); // не подсвечивается, не переходит по F12
         }

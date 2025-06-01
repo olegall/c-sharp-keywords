@@ -8,7 +8,7 @@ namespace ConsoleApp1
         private T[] arr = new T[100];
 
         // Define the indexer to allow client code to use [] notation.
-        public T this[int i]
+        public T this[int i] // позволяет сделать коллекцию этого типа за счёт индексатора и массива
         {
             get { return arr[i]; }
             set { arr[i] = value; }
@@ -46,84 +46,85 @@ namespace ConsoleApp1
         }
     }
 
-    class This
+    class This // так можно назвать
     {
         private event EventHandler ShapeChanged;
 
         private EventArgs e;
 
-        private int[] array = {1, 2};
+        private int[] array = { 1, 2 };
 
-        //this;
-        //This this;
-        //This this _this;
-        private This _this;
+        //this; // нельзя
+        //This this; // нельзя
+        //This this _this; // нельзя
+        //this _this; // нельзя
+
+        private This _this; // null. можно объявить экземпляр класса в классе
+        //private This _this2 = new This(); // StackOverflowException
 
         private string login; // login или Name проинициализируется быстрее?
-        public string Name { get; set; } = "Oleg";
+        private string Name { get; set; } = "Oleg";
 
-        public int this[int param]
+        public This()
+        {
+            var a = this; // объект этого (текущего) класса с проинициализированными полями
+            ShapeChanged?.Invoke(this, e);
+        }
+
+        int this[int param] 
         {
             get { return array[param]; }
             set { array[param] = value; }
         }
 
-        //public This()
-        //{
-        //    this.login = "Aleek";
-        //    _2(this); 
-        //}
-
-        public void Init()
+        void Init()
         {
             this.login = "Aleek";
-            _2(this); // сработает _2(This _this), т.к. более частный
+            array[0] = 100;
+            array[1] = 200;
         }
 
-        public void _1()
-        {
-            var a = this; 
-            ShapeChanged?.Invoke(this, e);
-        }
+        void Foo(This _this) { } // this можно передавать как параметр
 
-        public void _2(This _this) { } // this можно передавать как параметр
+        void Foo2(object _this) { } // this можно передавать как параметр
 
-        public void _2(object _this) { } // this можно передавать как параметр
-
+        int a1 = 0;
         public static void _3()
         {
+            // a1 = 1; // д.б. static
+
+            int a2 = 0; // внутри можно без static
+            a2 = 1;
             // var this_ = this; // нельзя для static
         }
 
         public void Run()
         {
-            var thisBefore = this;
-            Init(); // почему-то повлияло на thisBefore
-            //new This();
-            var thisAfter = this; // this - экземпляр This c проинициализированными полями. Аналог new This();
+            var this1 = this;
+            Init();
+            var this2 = this; // this - экземпляр This c проинициализированными полями. Аналог new This();
+            
+            new This();
+            
+            Foo(this); // сработает _2(This _this), т.к. более частный
 
-            _1();
-
-            var a1 = this._this; // null, хотя объект This уже создан
+            var a1 = this._this; // null, хотя объект This уже создан. This _this это не this
 
             // индексатор
-            var a2 = this[0]; // array[0] = 1
-            this[0] = 0;
-            var a3 = this[0]; // array[0] = 0
 
             // как передать this в кастомный метод?
 
             var stringCollection = new SampleCollection<string>();
-            stringCollection[0] = "Hello, World";
-            var this1 = stringCollection[0];
+            stringCollection[0] = "Hello, World"; // массив, т.к. в классе индексатор
+            var this3 = stringCollection[0]; 
 
             var stringCollection2 = new SampleCollection2<string>();
             stringCollection2.Add("Hello, World");
-            var this2 = stringCollection2[0];
+            var this4 = stringCollection2[0];
 
             var stringCollection3 = new SampleCollection3<string>();
             stringCollection3[0] = "Hello, World.";
-            var this3 = stringCollection3[0];
+            var this5 = stringCollection3[0];
         }
     }
 }

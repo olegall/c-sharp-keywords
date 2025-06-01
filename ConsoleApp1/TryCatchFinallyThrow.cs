@@ -17,8 +17,8 @@ namespace ConsoleApp1
 
         string _1(string args) 
         {
-            string first = args.Length >= 1 ? args[0] : throw new ArgumentException("Please supply at least one argument.");
-            return first;
+            //string first = args.Length >= 1 ? args[0] : throw new ArgumentException("Please supply at least one argument.");
+            return "first";
         }
 
         DateTime ToDateTime(IFormatProvider provider) => throw new InvalidCastException("Conversion to a DateTime is not supported.");
@@ -134,10 +134,10 @@ namespace ConsoleApp1
 
             try
             {
-                CancellationToken cancellationToken = null;
-                var result = await ProcessAsync(-3, 4, cancellationToken);
+                //CancellationToken cancellationToken = null;
+                //var result = await ProcessAsync(-3, 4, cancellationToken);
 
-                Console.WriteLine($"Processing succeeded: {result}");
+                //Console.WriteLine($"Processing succeeded: {result}");
             }
             catch (ArgumentException e)
             {

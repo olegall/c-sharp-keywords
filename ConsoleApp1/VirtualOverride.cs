@@ -24,6 +24,7 @@
             // Override auto-implemented property with ordinary property
             // to provide specialized accessor behavior.
             public override string Name
+            //public new string Name // new vs override vs no new override
             {
                 get
                 {

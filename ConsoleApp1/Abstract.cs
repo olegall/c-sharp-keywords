@@ -2,9 +2,11 @@
 {
     class Abstract
     {
-        abstract class Shape
+        abstract class Shape // необязательно public
         {
-            public abstract int GetArea(); // обязательно public
+            public abstract int GetArea(); // обязательно public, abstract
+            //abstract int GetArea();
+            public void GetArea2() { }
         }
 
         class Square : Shape
@@ -14,7 +16,13 @@
             public Square(int n) => _side = n;
 
             // GetArea method is required to avoid a compile-time error.
-            public override int GetArea() => _side * _side;
+            public override int GetArea() => _side * _side; // обязательно переопределять
+            //public new int GetArea() => _side * _side; // надо override
+            //public int GetArea() => _side * _side; // надо override
+
+            //void GetArea2() { }
+            //new void GetArea2() { }
+            //override void GetArea2() { }
 
             public static void Main_()
             {
@@ -25,12 +33,12 @@
 
         interface I
         {
-            void M();
+            void Foo();
         }
 
         abstract class C : I
         {
-            public abstract void M();
+            public abstract void Foo();
         }
 
         // Abstract class
@@ -70,11 +78,6 @@
                     return _y + 10;
                 }
             }
-
-            static void Main_()
-            {
-                
-            }
         }
 
         class FooAbstract
@@ -82,22 +85,13 @@
             int GetArea2() => 0;
 
             //public abstract int GetArea3 { get { return 0; } }
-            //abstract int GetArea3 { get { return 0; } }
 
-            //string Name { set => ""; }
-            
-            string a;
+           
+            //string a;
             //public abstract string Name { set => a = value; }
 
-            private int a1;
-
-            // abstract delegate int GetArea4(); // abstract нельзя
+            //public abstract delegate int GetArea3(); // abstract нельзя
             delegate int GetArea4();
-        }
-
-        class Foo
-        {
-            //public abstract int Baz(); // обязательно public
         }
 
         public void Run()

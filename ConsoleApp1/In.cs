@@ -8,18 +8,14 @@
         //public void SampleMethod(ref int i) { }
     }
 
-    class InOverloads
-    {
-        public void SampleMethod(in int i) { }
-        public void SampleMethod(int i) { }
-    }
-
     class In
     {
-        private int a1 = 10;  // обязательно присвоить (ошибки нет). const нельзя
-        private int? a2 = 1; // вызовется public void __2(out int? param). const нельзя
+
 
         // The in keyword causes arguments to be passed by reference but ensures the argument is not modified
+        
+        public void SampleMethod(in int i) { }
+        public void SampleMethod(int i) { }
 
         public void _1(in int param)
         {
@@ -30,12 +26,6 @@
         public void _2(in int? param)
         {
 
-        }
-
-        public int _3(in int param)
-        {
-            return param; // можно вернуть
-            //return 11; // можно вернуть
         }
 
         public void Method(in int argument)
@@ -56,6 +46,9 @@
             //number = 19;
         }
 
+        private int a1 = 10;  // The argument must be initialized before calling the method (ошибки нет). const нельзя
+        private int? a2 = 1; // вызовется public void __2(out int? param). const нельзя
+
         public void Run() 
         {
             int readonlyArgument = 44;
@@ -66,7 +59,7 @@
             _1(a1); // какая разница - вызывать с in или без?
 
             _2(in a2); // обязательно out, обязательно int param - назван так же
-            var a1In = _3(in a1); // и вернёт значение и передаст по ссылке
+            
 
 
             Method(5); // OK, temporary variable created.

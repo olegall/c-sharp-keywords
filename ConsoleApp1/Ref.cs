@@ -1,25 +1,23 @@
-﻿namespace ConsoleApp1
+﻿using System;
+
+namespace ConsoleApp1
 {
+    struct OptionStruct { }
+
     public class Ref
     {
-        private int a1 = 0;  // вызовется _1(out int param). const нельзя
-        private int? a2 = 1; // вызовется _1(out int? param). const нельзя
+        private int? a1 = 1; // по документации надо присваивать, но работает без присвоения
 
-        public void _1(ref int param)
+        public void Foo1(ref int? param) // int? - работает перегрузка
         {
-            param = 100; // не обязательно. такое значение приобретёт внешняя объявленная переменная
-        }
-        
-        public void _1(ref int? param) // int? - работает перегрузка
-        {            
-            param = null; // такое значение приобретёт внешняя объявленная переменная
+            //param = 2;
+            param = null; // можно не присваивать. такое значение приобретёт внешняя объявленная переменная
         }
 
-        public int _2(ref int param)
-        {
-            param = 10; // не обязательно
-            return 11;
-        }
+        //public static void ForceByRef(ref readonly OptionStruct thing)
+        //{
+        //    // elided
+        //}
 
         //public void __3()
         //{
@@ -29,13 +27,29 @@
         //    long result = number;
         //}
 
-        public void Run() 
+        public void Main_() 
         {
-            // 35, 36 строки вызываются подряд, после вызов 2-х методов подряд!
-            _1(ref a1); // обязательно out, обязательно int param - назван так же
-            _1(ref a2); // обязательно out, обязательно int param - назван так же
-            var a1Ref = _2(ref a1); // и вернёт значение и передаст по ссылке
-                                                //_ref.__3();
+            Console.WriteLine("*** REF ***");
+            Foo1(ref a1); // обязательно out, обязательно int param - назван так же
+            // можно удалить отсюда и из сигнатуры
+
+            //_ref.__3();
+
+            string s = "hello";
+            M(s);
+            Console.WriteLine(s);
+            M(ref s);
+            Console.WriteLine(s);
+        }
+
+        public void M(string s)
+        {
+            s = "this won't change the original string";
+        }
+
+        public void M(ref string s)
+        {
+            s = "this will change the original string";
         }
     }
 }

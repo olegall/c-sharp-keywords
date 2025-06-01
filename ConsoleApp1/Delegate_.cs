@@ -2,26 +2,26 @@
 
 namespace ConsoleApp1
 {
-    class Delegate
+    class Delegate_
     {
         public delegate void MessageDelegate(string message);
+        //public Delegate void MessageDelegate(string message);
         //public delegate int AnotherDelegate(MyType m, long num);
 
-        public delegate void Foo1(int a1);
+        private delegate void Foo1(int a1); // Foo1 - метод? тип? экземпляр типа делегат?
         //public delegate void Foo1(); // перегрузить по сигнатуре нельзя
-        public delegate void Foo2();
-        public delegate int Foo3();
-        public delegate int Foo4(int a1);
+        delegate int Foo2();
+        delegate int Foo3(int a1);
 
         public void _1()
         {
             Action<string> stringAction = str => { };
-            Action<object> objectAction = obj => { };
+            Action<object> objectAction = (obj) => { };
+            //var objectAction2 = (obj) => { };
 
-            // Valid due to implicit reference conversion of
-            // objectAction to Action<string>, but may fail
-            // at run time.
-            Action<string> combination = stringAction + objectAction;
+
+            // Valid due to implicit reference conversion of objectAction to Action<string>, but may fail at run time.
+            //Action<string> combination = stringAction + objectAction; // runtime System.ArgumentException: "Delegates must be of the same type."
         }
 
         public void _2() 
@@ -33,7 +33,7 @@ namespace ConsoleApp1
             Action<string> wrappedObjectAction = new Action<string>(objectAction);
 
             // The two Action<string> delegate instances can now be combined.
-            Action<string> combination = stringAction + wrappedObjectAction;
+            Action<string> combination = stringAction + wrappedObjectAction; // watch {Method = <Произошла внутренняя ошибка при вычислении выражения>}
         }
 
         public void Run() 

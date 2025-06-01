@@ -56,6 +56,7 @@ namespace ConsoleApp1
                 Employee4 e = new Employee4(name, id);
                 Console.Write("Enter the current number of employees: ");
                 string n = Console.ReadLine();
+                
                 Employee4.employeeCounter = Int32.Parse(n);
                 Employee4.AddEmployee();
 
